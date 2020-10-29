@@ -1,0 +1,14 @@
+{
+    "name": "chemistry1026/horeca-iiko-integration",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "license": "GNU AGPLv3",
+    "authors": [
+        {
+            "name": "Chemistry",
+            "email": "chemistry1026@ya.ru"
+        }
+    ]
+}
