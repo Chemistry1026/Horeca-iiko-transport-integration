@@ -14,6 +14,7 @@ use IikoTransport\dto\Order\Data\AddOrderItems\AddOrderItemsInputDataDto;
 use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsInputDataDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentInputDataDto;
 use IikoTransport\dto\Organizations\GetOrganizationsDto;
+use IikoTransport\dto\PaymentType\PaymentTypeInputDataDto;
 use IikoTransport\dto\TerminalGroups\GetTerminalGroupsDto;
 use Psr\Http\Message\ResponseInterface;
 
@@ -31,18 +32,6 @@ class RestMethods extends Rest
      */
     private $token = '';
 
-    /**
-     * Organization IDs
-     * @var string[]
-     */
-    private $organizationIds = [];
-
-    /**
-     * Terminal Group IDs
-     * @var string[]
-     */
-    private $terminalGroupIds = [];
-
     const AUTH_ROUTE = 'access_token';
     const ORGANIZATIONS_ROUTE = 'organizations';
     const TERMINAL_GROUP_ROUTE = 'terminal_groups';
@@ -52,6 +41,7 @@ class RestMethods extends Rest
     const UPDATE_ORDER_PAYMENTS_ROUTE = 'order/update_payments';
     const ADD_ORDER_ITEMS_ROUTE = 'order/add_items';
     const CLOSE_ORDER_ROUTE = 'order/close';
+    const PAYMENT_TYPES_ROUTE = 'payment_types';
 
     /**
      * RestMethods constructor.
@@ -227,5 +217,20 @@ class RestMethods extends Rest
         }
 
         return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::CLOSE_ORDER_ROUTE), 'POST');
+    }
+
+    /**
+     * Returns payment types details
+     * @param PaymentTypeInputDataDto $dto
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function getPaymentTypes(PaymentTypeInputDataDto $dto)
+    {
+        if (!$this->token) {
+            $this->auth();
+        }
+
+        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::PAYMENT_TYPES_ROUTE), 'POST');
     }
 }

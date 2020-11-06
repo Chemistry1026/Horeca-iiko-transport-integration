@@ -25,4 +25,10 @@ class TerminalGroupDto extends RestDto
      * @var string
      */
     public $name;
+
+    /**
+     * Group address
+     * @var string
+     */
+    public $address;
 }

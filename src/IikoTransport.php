@@ -15,6 +15,8 @@ use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsResponseDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentInputDataDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentResponseDto;
 use IikoTransport\dto\Organizations\OrganizationsListResponseDto;
+use IikoTransport\dto\PaymentType\PaymentTypeInputDataDto;
+use IikoTransport\dto\PaymentType\PaymentTypeResponseDto;
 use IikoTransport\dto\TerminalGroups\TerminalGroupsResponseDto;
 
 use Psr\Http\Message\ResponseInterface;
@@ -140,6 +142,20 @@ class IikoTransport
         $response = $this->restMethods->closeOrder($dto);
         if ($response->getStatusCode() == 200) {
             return new CloseOrderResponseDto(json_decode($response->getBody(), true));
+        }
+        return $response;
+    }
+
+    /**
+     * @param PaymentTypeInputDataDto $dto
+     * @return PaymentTypeResponseDto|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function getPaymentTypes(PaymentTypeInputDataDto $dto)
+    {
+        $response = $this->restMethods->getPaymentTypes($dto);
+        if ($response->getStatusCode() == 200) {
+            return new PaymentTypeResponseDto(json_decode($response->getBody(), true));
         }
         return $response;
     }
