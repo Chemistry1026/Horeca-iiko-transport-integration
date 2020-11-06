@@ -38,6 +38,7 @@ class RestDto implements JsonSerializable
         if (!$this->$property) return;
 
         foreach ($this->$property as $key => $item) {
+            $dto = new $dto;
             $this->$property[$key] = $dto->insertDataToClass($item);
 
             if (is_callable($dtoCallback)) {
