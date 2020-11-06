@@ -4,7 +4,6 @@
 namespace IikoTransport\dto\Order\Create;
 
 
-use IikoTransport\dto\Order\Create\Create\CreateOrderSettingDto;
 use IikoTransport\RestDto;
 
 class CreateOrderInputDataDto extends RestDto

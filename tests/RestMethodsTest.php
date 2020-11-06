@@ -4,6 +4,7 @@
 namespace IikoTransport\Tests;
 
 
+use GuzzleHttp\Exception\GuzzleException;
 use PHPUnit\Framework\TestCase;
 use IikoTransport\RestMethods;
 
@@ -14,6 +15,9 @@ class RestMethodsTest extends TestCase
      */
     private $login = '';
 
+    /**
+     * @throws GuzzleException
+     */
     public function testCanLogin()
     {
         $restMethods = new RestMethods($this->login);
@@ -22,6 +26,9 @@ class RestMethodsTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function testShouldReturnOrganizations()
     {
         $restMethods = new RestMethods($this->login);
@@ -30,6 +37,9 @@ class RestMethodsTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function testShouldReturnTerminalGroups()
     {
         $restMethods = new RestMethods($this->login);
@@ -38,6 +48,9 @@ class RestMethodsTest extends TestCase
         $this->assertEquals(200, $response->getStatusCode());
     }
 
+    /**
+     * @throws GuzzleException
+     */
     public function testShouldReturnNomenclature()
     {
         $restMethods = new RestMethods($this->login);

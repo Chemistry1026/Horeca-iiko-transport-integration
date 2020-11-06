@@ -1,7 +1,7 @@
 <?php
 
 
-namespace IikoTransport\dto\Order\Create\Create;
+namespace IikoTransport\dto\Order\Create;
 
 
 use IikoTransport\RestDto;

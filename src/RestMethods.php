@@ -4,21 +4,17 @@
 namespace IikoTransport;
 
 
-use Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use IikoTransport\dto\Authorization\AuthorizationDto;
 use IikoTransport\dto\Authorization\AuthorizationResponseDto;
 use IikoTransport\dto\Nomenclature\GetNomenclatureDto;
-//use IikoTransport\dto\Nomenclature\NomenclatureResponseDto;
 use IikoTransport\dto\Order\CloseOrder\CloseOrderInputDataDto;
 use IikoTransport\dto\Order\Create\CreateOrderInputDataDto;
 use IikoTransport\dto\Order\Data\AddOrderItems\AddOrderItemsInputDataDto;
 use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsInputDataDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentInputDataDto;
 use IikoTransport\dto\Organizations\GetOrganizationsDto;
-use IikoTransport\dto\Organizations\OrganizationsListResponseDto;
 use IikoTransport\dto\TerminalGroups\GetTerminalGroupsDto;
-use IikoTransport\dto\TerminalGroups\TerminalGroupsResponseDto;
 use Psr\Http\Message\ResponseInterface;
 
 class RestMethods extends Rest
