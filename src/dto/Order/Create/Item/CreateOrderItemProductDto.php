@@ -65,10 +65,10 @@ class CreateOrderItemProductDto extends RestDto
 
     /**
      * AddOrderItemProductDto constructor.
-     * @param int $productId
+     * @param string $productId
      * @param float $amount
      */
-    public function __construct(int $productId, float $amount)
+    public function __construct(string $productId, float $amount)
     {
         $this->productId = $productId;
         $this->amount = $amount;
