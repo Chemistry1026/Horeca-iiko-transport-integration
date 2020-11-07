@@ -226,4 +226,13 @@ class NomenclatureProductDto extends RestDto
      * @var bool
      */
     public $canSetOpenPrice;
+
+    /**
+     * @return NomenclatureProductSizeDto|null
+     */
+    public function getFirstSizePrice()
+    {
+        if (!count($this->sizePrices)) return null;
+        return $this->sizePrices[0];
+    }
 }

@@ -25,7 +25,7 @@ class NomenclatureResponseDto extends RestDto
 
     /**
      * Menu items and modifiers
-     * @var NomenclatureProductDto
+     * @var NomenclatureProductDto[]
      */
     public $products;
 
