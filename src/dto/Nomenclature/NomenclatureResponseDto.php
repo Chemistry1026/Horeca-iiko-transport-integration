@@ -55,7 +55,7 @@ class NomenclatureResponseDto extends RestDto
             $dto->setArrayToPropertyFromJson('groupModifiers', new NomenclatureProductGroupModifierDto());
 
             $dto->setArrayToPropertyFromJson('sizePrices', new NomenclatureProductSizeDto(), function (NomenclatureProductSizeDto $sizePriceDto) {
-                $sizePriceDto->setArrayToPropertyFromJson('price', new NomenclatureProductSizePriceDto());
+                $sizePriceDto->setPropertyToClassPropertyFromJson('price', new NomenclatureProductSizePriceDto());
             });
         });
 
