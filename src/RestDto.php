@@ -52,7 +52,9 @@ class RestDto implements JsonSerializable
     public function setPropertyToClassPropertyFromJson(string $property, self $dto)
     {
         if (!$this->$property) return null;
-        return $dto->insertDataToClass($this->$property);
+        $this->$property = $dto->insertDataToClass($this->$property);
+
+        return $this;
     }
 
     /**
