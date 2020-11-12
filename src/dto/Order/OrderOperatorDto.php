@@ -6,7 +6,7 @@ namespace IikoTransport\dto\Order;
 
 use IikoTransport\RestDto;
 
-class OrderTypeDto extends RestDto
+class OrderOperatorDto extends RestDto
 {
     /**
      * ID
@@ -19,10 +19,4 @@ class OrderTypeDto extends RestDto
      * @var string
      */
     public $name;
-
-    /**
-     * Order type
-     * @var string
-     */
-    public $orderServiceType;
 }

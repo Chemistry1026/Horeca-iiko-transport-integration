@@ -1,12 +1,12 @@
 <?php
 
 
-namespace IikoTransport\dto\Order;
+namespace IikoTransport\dto\Order\DeliveryPoint\Address;
 
 
 use IikoTransport\RestDto;
 
-class OrderTypeDto extends RestDto
+class OrderDeliveryPointAddressStreetCityDto extends RestDto
 {
     /**
      * ID
@@ -19,10 +19,4 @@ class OrderTypeDto extends RestDto
      * @var string
      */
     public $name;
-
-    /**
-     * Order type
-     * @var string
-     */
-    public $orderServiceType;
 }

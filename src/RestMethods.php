@@ -7,6 +7,7 @@ namespace IikoTransport;
 use GuzzleHttp\Exception\GuzzleException;
 use IikoTransport\dto\Authorization\AuthorizationDto;
 use IikoTransport\dto\Authorization\AuthorizationResponseDto;
+use IikoTransport\dto\Delivery\DeliveryRetrieveOrdersByIDsInputData;
 use IikoTransport\dto\Nomenclature\GetNomenclatureDto;
 use IikoTransport\dto\Order\CloseOrder\CloseOrderInputDataDto;
 use IikoTransport\dto\Order\Create\CreateOrderInputDataDto;
@@ -42,6 +43,7 @@ class RestMethods extends Rest
     const ADD_ORDER_ITEMS_ROUTE = 'order/add_items';
     const CLOSE_ORDER_ROUTE = 'order/close';
     const PAYMENT_TYPES_ROUTE = 'payment_types';
+    const DELIVERIES_BY_ID = 'deliveries/by_id';
 
     /**
      * RestMethods constructor.
@@ -232,5 +234,19 @@ class RestMethods extends Rest
         }
 
         return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::PAYMENT_TYPES_ROUTE), 'POST');
+    }
+
+    /**
+     * @param DeliveryRetrieveOrdersByIDsInputData $dto
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function retrieveOrdersByIds(DeliveryRetrieveOrdersByIDsInputData $dto)
+    {
+        if (!$this->token) {
+            $this->auth();
+        }
+
+        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_BY_ID), 'POST');
     }
 }
