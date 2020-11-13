@@ -10,7 +10,8 @@ use IikoTransport\dto\Authorization\AuthorizationResponseDto;
 use IikoTransport\dto\Delivery\DeliveryRetrieveOrdersByIDsInputData;
 use IikoTransport\dto\Nomenclature\GetNomenclatureDto;
 use IikoTransport\dto\Order\CloseOrder\CloseOrderInputDataDto;
-use IikoTransport\dto\Order\Create\CreateOrderInputDataDto;
+use IikoTransport\dto\Order\CreateDelivery\CreateDeliveryOrderInputDataDto;
+use IikoTransport\dto\Order\CreateDelivery\CreateOrderInputDataDto;
 use IikoTransport\dto\Order\Data\AddOrderItems\AddOrderItemsInputDataDto;
 use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsInputDataDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentInputDataDto;
@@ -43,7 +44,9 @@ class RestMethods extends Rest
     const ADD_ORDER_ITEMS_ROUTE = 'order/add_items';
     const CLOSE_ORDER_ROUTE = 'order/close';
     const PAYMENT_TYPES_ROUTE = 'payment_types';
+
     const DELIVERIES_BY_ID = 'deliveries/by_id';
+    const DELIVERIES_CREATE = 'deliveries/create';
 
     /**
      * RestMethods constructor.
@@ -248,5 +251,14 @@ class RestMethods extends Rest
         }
 
         return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_BY_ID), 'POST');
+    }
+
+    public function deliveryCreateOrder(CreateDeliveryOrderInputDataDto $dto)
+    {
+        if (!$this->token) {
+            $this->auth();
+        }
+
+        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_CREATE), 'POST');
     }
 }

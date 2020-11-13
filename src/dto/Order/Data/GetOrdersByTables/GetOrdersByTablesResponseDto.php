@@ -4,7 +4,7 @@
 namespace IikoTransport\dto\Order\Data\GetOrdersByTables;
 
 
-use IikoTransport\dto\Order\OrderResponseDto;
+use IikoTransport\dto\Order\CreateDeliveryOrderInfoDto;
 use IikoTransport\RestDto;
 
 class GetOrdersByTablesResponseDto extends RestDto
@@ -17,12 +17,12 @@ class GetOrdersByTablesResponseDto extends RestDto
 
     /**
      * Orders
-     * @var OrderResponseDto[]
+     * @var CreateDeliveryOrderInfoDto[]
      */
     public $orders;
 
     public function __construct()
     {
-        $this->setArrayToPropertyFromJson('orders', new OrderResponseDto());
+        $this->setArrayToPropertyFromJson('orders', new CreateDeliveryOrderInfoDto());
     }
 }

@@ -4,8 +4,8 @@
 namespace IikoTransport\dto\Order\Data\AddOrderItems;
 
 
-use IikoTransport\dto\Order\Create\Item\CreateOrderItemCompoundDto;
-use IikoTransport\dto\Order\Create\Item\CreateOrderItemProductDto;
+use IikoTransport\dto\Order\CreateDelivery\Item\CreateOrderItemCompoundDto;
+use IikoTransport\dto\Order\CreateDelivery\Item\CreateOrderItemProductDto;
 use IikoTransport\RestDto;
 
 class AddOrderItemsInputDataDto extends RestDto

@@ -4,8 +4,8 @@
 namespace IikoTransport\dto\Order\Create\DiscountInfo;
 
 
-use IikoTransport\dto\Order\DiscountInfo\Discount\OrderDiscountInfoDiscountCardIikoCardDto;
-use IikoTransport\dto\Order\DiscountInfo\Discount\OrderDiscountInfoDiscountCardRmsDto;
+use IikoTransport\dto\Order\Create\DiscountInfo\Discount\OrderDiscountInfoDiscountCardIikoCardDto;
+use IikoTransport\dto\Order\Create\DiscountInfo\Discount\OrderDiscountInfoDiscountCardRmsDto;
 use IikoTransport\RestDto;
 
 class OrderDiscountInfoDiscountDto extends RestDto

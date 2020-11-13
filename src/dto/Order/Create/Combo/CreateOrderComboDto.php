@@ -1,7 +1,7 @@
 <?php
 
 
-namespace IikoTransport\dto\Order\Create\Combo;
+namespace IikoTransport\dto\Order\CreateDelivery\Combo;
 
 
 use IikoTransport\RestDto;
