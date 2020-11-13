@@ -4,9 +4,9 @@
 namespace IikoTransport\dto\Order\CreateDelivery;
 
 
+use IikoTransport\dto\Order\Create\Item\CreateOrderItemCompoundDto;
+use IikoTransport\dto\Order\Create\Item\CreateOrderItemProductDto;
 use IikoTransport\dto\Order\DeliveryPoint\OrderDeliveryPointDto;
-use IikoTransport\dto\Order\Item\OrderItemCompoundDto;
-use IikoTransport\dto\Order\Item\OrderItemProductDto;
 use IikoTransport\dto\Order\OrderComboDto;
 use IikoTransport\dto\Order\OrderCustomerDto;
 use IikoTransport\dto\Order\OrderIikoCard5InfoDto;
@@ -29,7 +29,7 @@ class CreateRawDeliveryOrderDto extends RestDto
 
     /**
      * Order items(may include ProductOrderItem or CompoundOrderItem)
-     * @var OrderItemProductDto[]|OrderItemCompoundDto[]
+     * @var CreateOrderItemProductDto[]|CreateOrderItemCompoundDto[]
      */
     public $items;
 
@@ -92,7 +92,7 @@ class CreateRawDeliveryOrderDto extends RestDto
 
     /**
      * CreateRawDeliveryOrderDto constructor.
-     * @param OrderItemProductDto[]|OrderItemCompoundDto[] $items
+     * @param CreateOrderItemProductDto[]|CreateOrderItemCompoundDto[] $items
      * @param string $phone
      * @param OrderCustomerDto $customer
      */
