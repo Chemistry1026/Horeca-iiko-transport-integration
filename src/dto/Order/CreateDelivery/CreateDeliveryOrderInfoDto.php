@@ -43,5 +43,6 @@ class CreateDeliveryOrderInfoDto extends RestDto
     public function __construct()
     {
         $this->setPropertyToClassPropertyFromJson('errorInfo', new OrderErrorDto());
+        $this->order = new CreateDeliveryOrderDto($this->order);
     }
 }

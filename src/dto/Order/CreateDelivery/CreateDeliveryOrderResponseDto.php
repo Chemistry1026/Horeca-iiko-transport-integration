@@ -16,7 +16,14 @@ class CreateDeliveryOrderResponseDto extends RestDto
 
     /**
      * Order
-     * @var
+     * @var CreateDeliveryOrderInfoDto
      */
     public $orderInfo;
+
+    public function __construct($data)
+    {
+        $this->insertDataToClass($data);
+
+        $this->setPropertyToClassPropertyFromJson('orderInfo', new CreateDeliveryOrderInfoDto());
+    }
 }

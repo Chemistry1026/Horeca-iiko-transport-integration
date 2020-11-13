@@ -4,13 +4,13 @@
 namespace IikoTransport\dto\Order\Create;
 
 
-use IikoTransport\dto\Order\CreateDelivery\Combo\CreateOrderComboDto;
+use IikoTransport\dto\Order\Create\Combo\CreateOrderComboDto;
 use IikoTransport\dto\Order\Create\DiscountInfo\OrderDiscountInfoDiscountDto;
-use IikoTransport\dto\Order\CreateDelivery\Item\CreateOrderItemCompoundDto;
-use IikoTransport\dto\Order\CreateDelivery\Item\CreateOrderItemProductDto;
-use IikoTransport\dto\Order\CreateDelivery\Payment\CreateOrderPaymentCardDto;
-use IikoTransport\dto\Order\CreateDelivery\Payment\CreateOrderPaymentCashDto;
-use IikoTransport\dto\Order\CreateDelivery\Payment\CreateOrderPaymentIikoCardDto;
+use IikoTransport\dto\Order\Create\Item\CreateOrderItemCompoundDto;
+use IikoTransport\dto\Order\Create\Item\CreateOrderItemProductDto;
+use IikoTransport\dto\Order\Create\Payment\CreateOrderPaymentCardDto;
+use IikoTransport\dto\Order\Create\Payment\CreateOrderPaymentCashDto;
+use IikoTransport\dto\Order\Create\Payment\CreateOrderPaymentIikoCardDto;
 use IikoTransport\dto\Order\OrderIikoCard5InfoDto;
 use IikoTransport\RestDto;
 
