@@ -4,12 +4,12 @@
 namespace IikoTransport\dto\Order\CreateDelivery;
 
 
+use IikoTransport\dto\Order\Create\CreateOrderCustomerDto;
 use IikoTransport\dto\Order\Create\DiscountInfo\OrderDiscountInfoDiscountDto;
 use IikoTransport\dto\Order\Create\Item\CreateOrderItemCompoundDto;
 use IikoTransport\dto\Order\Create\Item\CreateOrderItemProductDto;
 use IikoTransport\dto\Order\DeliveryPoint\OrderDeliveryPointDto;
 use IikoTransport\dto\Order\OrderComboDto;
-use IikoTransport\dto\Order\OrderCustomerDto;
 use IikoTransport\dto\Order\OrderGuestInfoDto;
 use IikoTransport\dto\Order\OrderIikoCard5InfoDto;
 use IikoTransport\dto\Order\OrderPaymentDto;
@@ -100,7 +100,7 @@ class CreateRawDeliveryOrderDto extends RestDto
 
     /**
      * Order guest
-     * @var OrderCustomerDto
+     * @var CreateOrderCustomerDto
      */
     public $customer;
 
@@ -120,9 +120,9 @@ class CreateRawDeliveryOrderDto extends RestDto
      * CreateRawDeliveryOrderDto constructor.
      * @param CreateOrderItemProductDto[]|CreateOrderItemCompoundDto[] $items
      * @param string $phone
-     * @param OrderCustomerDto $customer
+     * @param CreateOrderCustomerDto $customer
      */
-    public function __construct(array $items, string $phone, OrderCustomerDto $customer)
+    public function __construct(array $items, string $phone, CreateOrderCustomerDto $customer)
     {
         $this->items = $items;
         $this->phone = $phone;
