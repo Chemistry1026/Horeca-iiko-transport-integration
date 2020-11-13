@@ -18,9 +18,7 @@ use IikoTransport\dto\Order\OrderMarketingSourceDto;
 use IikoTransport\dto\Order\OrderOperatorDto;
 use IikoTransport\dto\Order\OrderPaymentDto;
 use IikoTransport\dto\Order\OrderProblemFlagDto;
-use IikoTransport\dto\Order\OrderProductSingleDto;
 use IikoTransport\dto\Order\OrderTypeDto;
-use IikoTransport\dto\Order\Payment\OrderPaymentTypeDto;
 use IikoTransport\RestDto;
 
 class DeliveryRetrieveOrdersByIDsOrder extends RestDto

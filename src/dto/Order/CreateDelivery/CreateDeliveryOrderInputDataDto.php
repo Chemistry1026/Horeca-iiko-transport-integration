@@ -29,11 +29,11 @@ class CreateDeliveryOrderInputDataDto extends RestDto
 
     /**
      * Order
-     * @var CreateDeliveryOrderDto
+     * @var CreateRawDeliveryOrderDto
      */
     public $order;
 
-    public function __construct(string $organizationId, CreateDeliveryOrderDto $order)
+    public function __construct(string $organizationId, CreateRawDeliveryOrderDto $order)
     {
         $this->organizationId = $organizationId;
         $this->order = $order;
