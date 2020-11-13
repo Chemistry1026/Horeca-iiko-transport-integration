@@ -4,11 +4,13 @@
 namespace IikoTransport\dto\Order\CreateDelivery;
 
 
+use IikoTransport\dto\Order\Create\DiscountInfo\OrderDiscountInfoDiscountDto;
 use IikoTransport\dto\Order\Create\Item\CreateOrderItemCompoundDto;
 use IikoTransport\dto\Order\Create\Item\CreateOrderItemProductDto;
 use IikoTransport\dto\Order\DeliveryPoint\OrderDeliveryPointDto;
 use IikoTransport\dto\Order\OrderComboDto;
 use IikoTransport\dto\Order\OrderCustomerDto;
+use IikoTransport\dto\Order\OrderGuestInfoDto;
 use IikoTransport\dto\Order\OrderIikoCard5InfoDto;
 use IikoTransport\dto\Order\OrderPaymentDto;
 use IikoTransport\RestDto;
@@ -71,6 +73,30 @@ class CreateRawDeliveryOrderDto extends RestDto
      * @var OrderDeliveryPointDto
      */
     public $deliveryPoint;
+
+    /**
+     * Order comment
+     * @var string
+     */
+    public $comment;
+
+    /**
+     * Guest details
+     * @var OrderGuestInfoDto
+     */
+    public $guests;
+
+    /**
+     * Marketing source (advertisement) ID
+     * @var string
+     */
+    public $marketingSourceId;
+
+    /**
+     * Discounts/surcharges
+     * @var OrderDiscountInfoDiscountDto
+     */
+    public $discountsInfo;
 
     /**
      * Order guest
