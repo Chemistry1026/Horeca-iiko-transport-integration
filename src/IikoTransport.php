@@ -4,11 +4,15 @@
 namespace IikoTransport;
 
 
+use IikoTransport\dto\Delivery\DeliveryRetrieveOrdersByIDsInputData;
+use IikoTransport\dto\Delivery\DeliveryRetrieveOrdersByIDsResponseData;
 use IikoTransport\dto\Nomenclature\NomenclatureResponseDto;
 use IikoTransport\dto\Order\CloseOrder\CloseOrderInputDataDto;
 use IikoTransport\dto\Order\CloseOrder\CloseOrderResponseDto;
 use dto\Order\CreateDelivery\CreateOrderInputDataDto;
 use dto\Order\CreateDelivery\CreateOrderResponseDto;
+use IikoTransport\dto\Order\CreateDelivery\CreateDeliveryOrderInputDataDto;
+use IikoTransport\dto\Order\CreateDelivery\CreateDeliveryOrderResponseDto;
 use IikoTransport\dto\Order\Data\AddOrderItems\AddOrderItemsInputDataDto;
 use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsInputDataDto;
 use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsResponseDto;
@@ -156,6 +160,34 @@ class IikoTransport
         $response = $this->restMethods->getPaymentTypes($dto);
         if ($response->getStatusCode() == 200) {
             return new PaymentTypeResponseDto(json_decode($response->getBody(), true));
+        }
+        return $response;
+    }
+
+    /**
+     * @param DeliveryRetrieveOrdersByIDsInputData $dto
+     * @return DeliveryRetrieveOrdersByIDsResponseData|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function retrieveOrdersByIds(DeliveryRetrieveOrdersByIDsInputData $dto)
+    {
+        $response = $this->restMethods->retrieveOrdersByIds($dto);
+        if ($response->getStatusCode() == 200) {
+            return new DeliveryRetrieveOrdersByIDsResponseData(json_decode($response->getBody(), true));
+        }
+        return $response;
+    }
+
+    /**
+     * @param CreateDeliveryOrderInputDataDto $dto
+     * @return CreateDeliveryOrderResponseDto|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function deliveryCreateOrder(CreateDeliveryOrderInputDataDto $dto)
+    {
+        $response = $this->restMethods->deliveryCreateOrder($dto);
+        if ($response->getStatusCode() == 200) {
+            return new CreateDeliveryOrderResponseDto(json_decode($response->getBody(), true));
         }
         return $response;
     }
