@@ -30,7 +30,7 @@ class CreateDeliveryOrderInfoDto extends RestDto
 
     /**
      * Order check creation error details.
-     * @var OrderErrorDto
+     * @var OrderErrorDto|null
      */
     public $errorInfo;
 

@@ -85,8 +85,10 @@ class OrderItemCompoundDto extends RestDto
      */
     public $template;
 
-    public function __construct()
+    public function __construct($data)
     {
+        $this->insertDataToClass($data);
+
         $this->setPropertyToClassPropertyFromJson('primaryComponent', new OrderItemCompoundComponentDto());
         $this->setPropertyToClassPropertyFromJson('secondaryComponent', new OrderItemCompoundComponentDto());
         $this->setArrayToPropertyFromJson('commonModifiers', new OrderItemModifierDto());

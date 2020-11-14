@@ -84,15 +84,17 @@ class DeliveryRetrieveOrdersByIDsResponseData extends RestDto
                 $orderDto->setPropertyToClassPropertyFromJson('marketingSource', new OrderMarketingSourceDto());
                 $orderDto->setPropertyToClassPropertyFromJson('guestsInfo', new OrderGuestInfoDto());
 
-                foreach ($orderDto->items as &$item) {
-                    switch ($item['type']) {
-                        case "Product":
-                            $item = $orderDto->setPropertyToClassPropertyFromJson($item, new OrderItemProductDto());
-                            break;
+                if ($orderDto->items) {
+                    foreach ($orderDto->items as &$item) {
+                        switch ($item['type']) {
+                            case "Product":
+                                $item = new OrderItemProductDto($item);
+                                break;
 
-                        case "Compound":
-                            $item = $orderDto->setPropertyToClassPropertyFromJson($item, new OrderItemCompoundDto());
-                            break;
+                            case "Compound":
+                                $item = new OrderItemCompoundDto($item);
+                                break;
+                        }
                     }
                 }
 

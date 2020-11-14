@@ -103,8 +103,10 @@ class OrderItemProductDto extends RestDto
      */
     public $taxPercent;
 
-    public function __construct()
+    public function __construct($data)
     {
+        $this->insertDataToClass($data);
+
         $this->setPropertyToClassPropertyFromJson('product', new OrderProductSingleDto());
         $this->setPropertyToClassPropertyFromJson('deleted', new DeletedObjectDto());
         $this->setPropertyToClassPropertyFromJson('size', new OrderSizeDto());
