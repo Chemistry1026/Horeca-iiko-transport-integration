@@ -36,13 +36,18 @@ class CreateDeliveryOrderInfoDto extends RestDto
 
     /**
      * Order creation details. Field is filled up if creationStatus=Success
-     * @var CreateDeliveryOrderDto
+     * @var CreateDeliveryOrderDto|null
      */
     protected $order;
 
     public function __construct()
     {
-        $this->setPropertyToClassPropertyFromJson('errorInfo', new OrderErrorDto());
-        $this->order = new CreateDeliveryOrderDto($this->order);
+        if ($this->errorInfo) {
+            $this->setPropertyToClassPropertyFromJson('errorInfo', new OrderErrorDto());
+        }
+
+        if ($this->order) {
+            $this->order = new CreateDeliveryOrderDto($this->order);
+        }
     }
 }
