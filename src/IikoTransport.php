@@ -19,6 +19,8 @@ use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsResponseDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentInputDataDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentResponseDto;
 use IikoTransport\dto\Organizations\OrganizationsListResponseDto;
+use IikoTransport\dto\OutOfStock\OutOfStockInputDataDto;
+use IikoTransport\dto\OutOfStock\OutOfStockResponseDto;
 use IikoTransport\dto\PaymentType\PaymentTypeInputDataDto;
 use IikoTransport\dto\PaymentType\PaymentTypeResponseDto;
 use IikoTransport\dto\TerminalGroups\TerminalGroupsResponseDto;
@@ -188,6 +190,20 @@ class IikoTransport
         $response = $this->restMethods->deliveryCreateOrder($dto);
         if ($response->getStatusCode() == 200) {
             return new CreateDeliveryOrderResponseDto(json_decode($response->getBody(), true));
+        }
+        return $response;
+    }
+
+    /**
+     * @param OutOfStockInputDataDto $dto
+     * @return OutOfStockResponseDto|ResponseInterface
+     * @throws GuzzleException
+     */
+    public function outOfStockList(OutOfStockInputDataDto $dto)
+    {
+        $response = $this->restMethods->outOfStockItems($dto);
+        if ($response->getStatusCode() == 200) {
+            return new OutOfStockResponseDto(json_decode($response->getBody(), true));
         }
         return $response;
     }

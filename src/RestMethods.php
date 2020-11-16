@@ -16,6 +16,7 @@ use IikoTransport\dto\Order\Data\AddOrderItems\AddOrderItemsInputDataDto;
 use IikoTransport\dto\Order\Data\GetOrdersByIds\GetOrdersByIdsInputDataDto;
 use IikoTransport\dto\Order\Data\UpdateOrderPayment\UpdateOrderPaymentInputDataDto;
 use IikoTransport\dto\Organizations\GetOrganizationsDto;
+use IikoTransport\dto\OutOfStock\OutOfStockInputDataDto;
 use IikoTransport\dto\PaymentType\PaymentTypeInputDataDto;
 use IikoTransport\dto\TerminalGroups\GetTerminalGroupsDto;
 use Psr\Http\Message\ResponseInterface;
@@ -45,8 +46,10 @@ class RestMethods extends Rest
     const CLOSE_ORDER_ROUTE = 'order/close';
     const PAYMENT_TYPES_ROUTE = 'payment_types';
 
-    const DELIVERIES_BY_ID = 'deliveries/by_id';
-    const DELIVERIES_CREATE = 'deliveries/create';
+    const DELIVERIES_BY_ID_ROUTE = 'deliveries/by_id';
+    const DELIVERIES_CREATE_ROUTE = 'deliveries/create';
+
+    const STOP_LISTS_ROUTE = 'stop_lists';
 
     /**
      * RestMethods constructor.
@@ -250,15 +253,34 @@ class RestMethods extends Rest
             $this->auth();
         }
 
-        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_BY_ID), 'POST');
+        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_BY_ID_ROUTE), 'POST');
     }
 
+    /**
+     * @param CreateDeliveryOrderInputDataDto $dto
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
     public function deliveryCreateOrder(CreateDeliveryOrderInputDataDto $dto)
     {
         if (!$this->token) {
             $this->auth();
         }
 
-        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_CREATE), 'POST');
+        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::DELIVERIES_CREATE_ROUTE), 'POST');
+    }
+
+    /**
+     * @param OutOfStockInputDataDto $dto
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function outOfStockItems(OutOfStockInputDataDto $dto)
+    {
+        if (!$this->token) {
+            $this->auth();
+        }
+
+        return $this->makeRawRequest($this->jsonData($dto->toArray()), $this->apiRoute(self::STOP_LISTS_ROUTE), 'POST');
     }
 }
